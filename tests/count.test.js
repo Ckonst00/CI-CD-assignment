@@ -1,5 +1,5 @@
-import { test, expect } from "vitest"
-import { incrementCount, resetCount } from "../functions"
+import { test, expect, beforeAll, afterEach } from "vitest"
+import { incrementCount, resetCount } from "../src/functions"
 
 beforeAll(() => {
     const div = document.createElement("div")

@@ -1,5 +1,5 @@
-import { test, expect } from "vitest"
-import { reverseText } from "../functions"
+import { test, expect, beforeAll } from "vitest"
+import { reverseText } from "../src/functions"
 
 beforeAll(() => {
     const input = document.createElement("input")
