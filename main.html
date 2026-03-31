@@ -69,26 +69,7 @@
         </div>
     </div>
 
-    <script>
-        let counter = 0;
-
-        function incrementCount() {
-            counter++;
-            document.getElementById('count').textContent = counter;
-        }
-
-        function resetCount() {
-            counter = 0;
-            document.getElementById('count').textContent = counter;
-        }
-
-        function reverseText() {
-            const input = document.getElementById('textInput').value;
-            const reversed = input.split('').reverse().join('');
-            const resultDiv = document.getElementById('result');
-            resultDiv.textContent = 'Reversed: ' + reversed;
-            resultDiv.style.display = 'block';
-        }
+    <script src="functions.js">
     </script>
 </body>
 

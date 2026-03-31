@@ -1,6 +1,6 @@
 let counter = 0;
 
-export function incrementCount() {
+function incrementCount() {
     counter++;
     const doc = document.getElementById('count');
     if (doc) {
@@ -8,7 +8,7 @@ export function incrementCount() {
     }
 }
 
-export function resetCount() {
+function resetCount() {
     counter = 0;
     const doc = document?.getElementById('count');
     if (doc) {
@@ -16,8 +16,8 @@ export function resetCount() {
     }
 }
 
-export function reverseText() {
-    const input = document.getElementById('textInput') as HTMLInputElement | null
+function reverseText() {
+    const input = document.getElementById('textInput')
     if (input) {
         const inputValue = input.value.toString();
         const reversed = inputValue.split('').reverse().join('');
