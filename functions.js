@@ -28,3 +28,9 @@ function reverseText() {
         }
     }
 }
+
+module.exports = {
+    incrementCount,
+    resetCount,
+    reverseText
+}
