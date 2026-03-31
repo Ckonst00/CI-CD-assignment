@@ -1,11 +1,9 @@
-import { test, expect, beforeAll, afterEach } from "vitest"
+import { test, expect, afterEach } from "vitest"
 import { incrementCount, resetCount } from "../src/functions.cjs"
 
-beforeAll(() => {
-    const div = document.createElement("div")
-    div.id = "count"
-    document.body.appendChild(div)
-})
+const div = document.createElement("div")
+div.id = "count"
+document.body.appendChild(div)
 
 afterEach(() => {
     resetCount()
@@ -13,16 +11,14 @@ afterEach(() => {
 
 test("increments number and updates element", () => {
     incrementCount()
-    const doc = document.getElementById("count")
-    expect(doc.textContent).toEqual("1")
+    expect(div.textContent).toEqual("1")
     incrementCount()
-    expect(doc.textContent).toEqual("2")
+    expect(div.textContent).toEqual("2")
 })
 
 test("resets element content", () => {
-    const doc = document.getElementById("count")
     incrementCount()
-    expect(doc.textContent).toEqual("1")
+    expect(div.textContent).toEqual("1")
     resetCount()
-    expect(doc.textContent).toEqual("0")
+    expect(div.textContent).toEqual("0")
 })
