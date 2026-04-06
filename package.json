@@ -2,13 +2,16 @@
   "name": "ci-cd-assignment",
   "private": true,
   "version": "0.0.1",
+  "homepage": "https://Ckonst00.github.io/CI-CD-assignment",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -19,6 +22,7 @@
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
+    "gh-pages": "^6.3.0",
     "jsdom": "^29.0.1",
     "vite": "^6.0.0",
     "vitest": "^2.1.9"

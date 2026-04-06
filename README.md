@@ -1,0 +1,1 @@
+![CI](https://github.com/Ckonst00/CI-CD-assignment/actions/workflows/node.js.yml/badge.svg)
