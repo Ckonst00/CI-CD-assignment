@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Simple Functionality</h1>
+      <h1>| Simple Functionality |</h1>
 
       <div>
         <h2>Counter</h2>
