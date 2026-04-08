@@ -1,0 +1,42 @@
+name: Discord Notification
+
+on:
+  workflow_run:
+    workflows: ["Lint", "CI-pipeline"]
+    types: [completed]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Discord on Failure
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        run: |
+          curl -X POST ${{ secrets.DISCORD_WEBHOOK_URL }} \
+            -H "Content-Type: application/json" \
+            -d '{
+              "embeds": [{
+                "title": "❌ Workflow Failed",
+                "color": 15158332,
+                "fields": [
+                  { "name": "Workflow", "value": "${{ github.event.workflow_run.name }}" },
+                  { "name": "Branch", "value": "${{ github.event.workflow_run.head_branch }}" }
+                ]
+              }]
+            }'
+
+      - name: Notify Discord on Success
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        run: |
+          curl -X POST ${{ secrets.DISCORD_WEBHOOK_URL }} \
+            -H "Content-Type: application/json" \
+            -d '{
+              "embeds": [{
+                "title": "✅ Workflow Passed",
+                "color": 3066993,
+                "fields": [
+                  { "name": "Workflow", "value": "${{ github.event.workflow_run.name }}" },
+                  { "name": "Branch", "value": "${{ github.event.workflow_run.head_branch }}" }
+                ]
+              }]
+            }'
